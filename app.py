@@ -4,16 +4,19 @@ import pandas as pd
 import requests
 import os
 
+FILE_ID = '1qQhvOQEtzdCkDvTRLIXfR1J4fXGh9qdC'
+DESTINATION = 'similarity.pkl'
+
+# Function to download similarity.pkl if it doesn't exist
 def download_file_from_google_drive(file_id, destination):
     if not os.path.exists(destination):
         url = f"https://drive.google.com/uc?id={file_id}"
-        r = requests.get(url)
+        response = requests.get(url)
         with open(destination, 'wb') as f:
-            f.write(r.content)
+            f.write(response.content)
 
-# File ID from your shared Google Drive link
-file_id = '1qQhvOQEtzdCkDvTRLIXfR1J4fXGh9qdC'
-download_file_from_google_drive(file_id, 'similarity.pkl')
+# Download the file if needed
+download_file_from_google_drive(FILE_ID, DESTINATION)
 
 # Load data
 movies_dict = pickle.load(open('movie_dict.pkl', 'rb'))
