@@ -1,8 +1,21 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import requests
+import os
 
-# Load movie data and similarity matrix
+def download_file_from_google_drive(file_id, destination):
+    if not os.path.exists(destination):
+        url = f"https://drive.google.com/uc?id={file_id}"
+        r = requests.get(url)
+        with open(destination, 'wb') as f:
+            f.write(r.content)
+
+# File ID from your shared Google Drive link
+file_id = '1qQhvOQEtzdCkDvTRLIXfR1J4fXGh9qdC'
+download_file_from_google_drive(file_id, 'similarity.pkl')
+
+# Load data
 movies_dict = pickle.load(open('movie_dict.pkl', 'rb'))
 movies = pd.DataFrame(movies_dict)
 similarity = pickle.load(open('similarity.pkl', 'rb'))
