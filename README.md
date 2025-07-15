@@ -4,7 +4,7 @@
 
 A content-based movie recommendation system built with Python and Streamlit. Select a movie, and the app will suggest five other movies with similar characteristics based on their genre, keywords, cast, and crew.
 
-![Movie Recommender Demo](<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2488626d-cec8-484e-b14e-9149e4c2af6c" />)
+![Movie Recommender Demo]<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2488626d-cec8-484e-b14e-9149e4c2af6c" />
 
 
 ---
